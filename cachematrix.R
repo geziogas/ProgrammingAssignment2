@@ -5,6 +5,9 @@
 # # function, we get the inversed matrix. If we run for 2nd time
 # # the cacheSolve() function, we get a message, that we got the
 # # inversed matrix from cache, instead of recalculating it.
+
+# This function receives a matrix as argument and caches it.
+# The function contains other functions that handle the matrix.
 makeCacheMatrix <- function(x = matrix()) {
 
     m <- NULL
@@ -19,6 +22,9 @@ makeCacheMatrix <- function(x = matrix()) {
     list(set = set, get = get,setInverse = setInverse,getInverse = getInverse)
 }
 
+# This function basically calculates the inverse matrix and in
+# case that the inverse is calculated before, it understands that
+# and returns without calculation, the cached inverse matrix.
 cacheSolve <- function(x, ...) {
     m <- x$getInverse()
     if(!is.null(m)) 
